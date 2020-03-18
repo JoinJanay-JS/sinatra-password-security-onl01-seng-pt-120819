@@ -26,6 +26,7 @@ class ApplicationController < Sinatra::Base
 		end
 	end
 
+
 	get "/login" do
 		erb :login
 	end
@@ -59,11 +60,11 @@ class ApplicationController < Sinatra::Base
 
 	helpers do
 		def logged_in?
-			!!session[:id]
+			!!session[:user_id]
 		end
 
 		def current_user
-			User.find(session[:id])
+			User.find(session[:user_id])
 		end
 	end
 
